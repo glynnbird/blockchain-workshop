@@ -16,11 +16,11 @@ Compile the code using solc
 
 Create a variable that contains the "abi definition" from the compiled source (this is the method "signature" of the contract.. more on this later).
 
-    var jarContract = web3.eth.contract(srcCompiled.jar.info.abiDefinition);
+    var jarContract = web3.eth.contract(srcCompiled['<stdin>:jar'].info.abiDefinition);
 
 Broadcast your intention to create a new smart contract from the compiled source
 
-    var jar =jarContract.new( {from:web3.eth.accounts[0], data: srcCompiled.jar.code, gas: 2000000});
+    var jar =jarContract.new( {from:web3.eth.accounts[0], data: srcCompiled['<stdin>:jar'].code, gas: 2000000});
     
 Check the value of jar by typing :
 
