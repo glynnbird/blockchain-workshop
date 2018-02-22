@@ -10,25 +10,27 @@ At the end of Exercise 4 you should have this code:
 pragma solidity ^0.4.0;
 
 contract jar {
+  
+  uint public numDonations; 
+  uint target;
 
-  uint public numDonations;
-  uint public target;
-
-  function jar() {
+  function jar() public {
     numDonations = 0;
-    target = 200000000000000000;
   }
 
-  function save() payable {
-    numDonations++;
+  function save() public payable {
+    numDonations++ ;
   }
 
-  function withdraw () {
-    if (this.balance < target) throw;
-    if (!msg.sender.send(this.balance)) throw;
+  function withdraw public payable () {
+    assert(this.balance >= target);
+    assert(msg.sender.send(this.balance);
   }
 }
+
+
 ```
+
 Create a text file called jar4.sol with the above code.
 
 We want to store the creator of the contract. This is done by the constructor. So below the target, we define a variable called "owner", which is of a special type called "address":
@@ -64,8 +66,10 @@ into **their** console, and then give you **their** contract address.
 
 Now you are going to "reach into" their jar by creating it on your machine!
 
-    var otherjar = eth.contract(srcCompiled.jar.info.abiDefinition).at("<other_address>")
+    var otherjar = eth.contract(abi).at("<other_address>")
     
+(the "abi" variable was the one you used to create your own contract. We are assuming these are basically the same).
+
 And now try withdrawing money from their jar:
 
     otherjar.withdraw({from:eth.accounts[0]});
@@ -74,4 +78,4 @@ Check the resulting transaction ID on etherscan. What is going on?
 
 ## Learning Points
 
-Once a contract is on the blockchain, ANYONE can access it if they know its location (address) and its method signature (abiDefinition). It is TOTALLY public. So you need to make very sure that you know what it is doing and make sure that your function calls have security in place to prevent unwanted access.
+Once a contract is on the blockchain, ANYONE can access it if they know its location (address) and its method signature (abi). It is TOTALLY public. So you need to make very sure that you know what it is doing and make sure that your function calls have security in place to prevent unwanted access.
