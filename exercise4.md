@@ -10,21 +10,23 @@ After exercise 3, you should have code that looks like this:
 pragma solidity ^0.4.0;
 
 contract jar {
+  
+  uint public numDonations; 
 
-  uint public numDonations;
-
-  function jar() {
+  function jar() public {
     numDonations = 0;
   }
 
-  function save() payable {
-    numDonations++;
+  function save() public payable {
+    numDonations++ ;
   }
 
-  function withdraw () {
-    if (!msg.sender.send(this.balance)) throw;
+  function withdraw() public payable {
+    assert(msg.sender.send(this.balance));
   }
+
 }
+
 
 ```
 
@@ -38,18 +40,17 @@ Now, your "withdraw" function has to check whether you have saved enough money:
 
 ```
   function withdraw () {
-    if (this.balance < target) throw;
-    if (!msg.sender.send(this.balance)) throw;
+    assert(this.balance >= target);
+    assert(msg.sender.send(this.balance);
   }
 ```
-
 - **this.balance** is an internal variable that holds the amount of ether in the contract.  
 - **target** is your local variable with the target
-- **throw** indicates that when the result of the **if** condition is true (target not reached) then an exception is **throw**n and the contract stops executing.
+- **assert** indicates that the expression inside the brackets needs to be **TRUE**. If it isn't then an exception occurs, the programme stops executing.
 
 Save your code and make sure it compiles
 
-    solc jar3.sol
+    solc -- abi --bin jar3.sol
 
 Again, follow the steps in [Exercise 2](https://gist.github.com/danmermel/66c87ffb1b6174999762c45d5251ffdf) to get the new contract up on the blockchain.
 
@@ -63,7 +64,7 @@ Now, save 0.05 ether
 
     jar.withdraw({from:eth.accounts[0]});
 
-Check the tx id on Etherscan. It should have failed.  Because the amount saved is less than the target then an exception is thrown and the contract stops executing.
+Check the tx id on Etherscan. It should have failed.  Because the amount saved is less than the target then an exception is thrown and the contract stops executing. 
 As a side effect of this, the sender of the transaction loses all of the ether they sent to pay for the execution.
 
 Now, save more money, e.g. 0.16 ether:
