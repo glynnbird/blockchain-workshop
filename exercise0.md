@@ -20,7 +20,7 @@ sudo apt-get install solc
 
 #### Create an account (and tell us about it)
 ```
-geth --testnet account new
+geth --rinkeby account new
 <enter password>
 ```
 
@@ -32,7 +32,7 @@ https://docs.google.com/spreadsheets/d/1fW_NYpddcuL1QKFtrIyYDkHIYHIFjabMfMfGzG7c
 
 ```sh
 cd ~/.ethereum
-ln -s testnet/geth.ipc geth.ipc
+ln -s rinkeby/geth.ipc geth.ipc
 cd .. 
 ```
 
@@ -44,9 +44,12 @@ echo "<password>" > pass_file
 #### Run geth in the background
 
 ```sh
-geth --testnet --fast --unlock "0x<your_account>" --password pass_file --bootnodes "enode://20c9ad97c081d63397d7b685a412227a40e23c8bdc6688c6f37e97cfbc22d2b4d1db1510d8f61e6a8866ad7f0e17c02b14182d37ea7c3c8b9c2683aeb6b733a1@52.169.14.227:30303,enode://6ce05930c72abc632c58e2e4324f7c7ea478cec0ed4fa2528982cf34483094e9cbc9216e7aa349691242576d552a2a56aaeae426c5303ded677ce455ba1acd9d@13.84.180.240:30303" 
+geth --rinkeby --rpc --unlock "0x<your_account>" --password pass_file
 ```
 
+What this does is download a "light" copy of the blockchain, so you need to leave it running, i.e. do not turn off your computer or close this terminal window. 
+
+It will take about an hour to sync the whole blockchain.
 
 #### Attach to the geth instance that you are running
 
@@ -68,8 +71,19 @@ Now check that your geth instance is synicing with the blockchain
 ```
 eth.syncing
 ```
+You will see something like this
 
-This will take a few minutes to complete... wait until eth.syncing returns "false".
+```
+{
+  currentBlock: 1756268,
+  highestBlock: 1765271,
+  knownStates: 0,
+  pulledStates: 0,
+  startingBlock: 1756116
+}
+```
+
+When eth.syncing returns "false", you are synced!
 
 Now check that your account is there
 ```
