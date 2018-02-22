@@ -20,7 +20,7 @@ Send them 0.1 Ether!
 You will end up with a transaction ID, e.g. 0xb983404b383361f27c1016eb7adcd422b0540d8fabf73fec0d5e9181a4fbaa49
 Put that into etherscan to check it has been "mined"
 
-https://testnet.etherscan.io/tx/0xd7041f44b65a1b8a98c5a3111106211420a78bafe449dae7f718a2a8c911a706
+https://rinkeby.etherscan.io/tx/0xc4c50cbd4ef9926966db5b34f41aaee58e722f4d90724a56c212f0b14b3e7fc0
 
 YOu will probably see a "Pending" state.
 Eventually it will show with a "Block" number, which means it has been added to a block in the blockchain. It is now "mined"!
@@ -33,7 +33,7 @@ You should see it go down by approx 0.1 Ether. Eventually you will receive 0.1 E
 
 Your address ("wallet") is becoming like a bank statement or a ledger.It has all the inputs and outputs:
 
-https://testnet.etherscan.io/address/0xec1a21b4079ac5ede878c829ea0174b12e74166b
+https://rinkeby.etherscan.io/address/0xc93e45fb3215cb60e5937ecb0c86bbc2af144dba
     
 ## Learning Points
 
