@@ -11,18 +11,16 @@ pragma solidity ^0.4.0;
 
 contract jar {
 
-  function jar() {
+  function jar() public { }
+
+  function save() public payable { }
+
+  function withdraw() public payable {
+    assert(msg.sender.send(this.balance));
   }
 
-  function save() payable {
-  }
-
-  function withdraw () {
-     if (!msg.sender.send(this.balance)) throw;
-  }
 }
 ```
-
 Declare a variable called numDonations at the top of the contract.
 
     uint public numDonations;
@@ -39,14 +37,12 @@ Save your file
 
 In your terminal (not the Geth console), make sure it still compiles
 
-    solc jar2.sol
+    solc --abi --bin jar2.sol
 
 Any compilation errors will appear in your console. 
-If compilation is successful, you should get nothing.
+If compilation is successful, you should get only the abi and binary code like before.
 
 Now, in the Geth console you have to follow the steps in [Exercise 2](https://gist.github.com/danmermel/66c87ffb1b6174999762c45d5251ffdf) in order to create a new contract on the blockchain.
-
-Use this tool http://www.textfixer.com/tools/remove-line-breaks.php to remove **line and paragraph breaks** from your code.
 
 Remember to keep checking the value of jar until you can see an address, which indicates it has been mined.
 
@@ -64,7 +60,7 @@ You will end up with a transaction ID, e.g. 0xb983404b383361f27c1016eb7adcd422b0
 
 Put that into etherscan to check it has been "mined"
 
-https://testnet.etherscan.io/tx/0xd7041f44b65a1b8a98c5a3111106211420a78bafe449dae7f718a2a8c911a706
+https://rinkeby.etherscan.io/tx/0xd7041f44b65a1b8a98c5a3111106211420a78bafe449dae7f718a2a8c911a706
 
 Once it has been mined, you can check the number of donations in your geth console:
 
