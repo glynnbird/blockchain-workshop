@@ -58,23 +58,28 @@ Now, save 0.05 ether
 
     jar.save({from:eth.accounts[0], value:"50000000000000000"});
 
-...make sure that is mined. You can do that by checking the number of donations.
-
 ...and then try to withdraw the money:
 
     jar.withdraw({from:eth.accounts[0]});
 
-Check the tx id on Etherscan. It should have failed.  Because the amount saved is less than the target then an exception is thrown and the contract stops executing. 
+Now, you will know this has failed because if you check the balance in the jar, the money will still be there:
+
+    eth.getBalance(jar.address)
+
+Because the amount saved is less than the target then an exception is thrown and the contract stops executing. 
 As a side effect of this, the sender of the transaction loses all of the ether they sent to pay for the execution.
 
 Now, save more money, e.g. 0.16 ether:
 
     jar.save({from:eth.accounts[0], value:"160000000000000000"});
     
-After that has mined, you should be able to withdraw your savings!
+Now check the balance and the number of donations (you should have 2).
+
+Then withdraw the money again. Check the balance in the jar. It should now be zero!
 
 ## Learning Points
 
-Contract will not work if you do not meet its terms. Your code, once mined, is fixed forever - if you make the target 2 ETH instead of 0.2 ETH, you cannot change that!  
-New code = completely new contract  
+A contract will not work if you do not meet its terms. 
+Your code, once mined, is fixed forever - if you make the target 2 ETH instead of 0.2 ETH, you cannot change that!  
+New code = completely new contract at a different address on the blockchain  
 Hacking attempts are not cost-free - every time you try to execute a contract function and it fails (e.g. calling "withdraw" before the target is reached), you lose all the Ether you sent in to pay for the transaction.
