@@ -22,9 +22,9 @@ contract jar {
     numDonations++ ;
   }
 
-  function withdraw public payable () {
+  function withdraw () public payable {
     assert(this.balance >= target);
-    assert(msg.sender.send(this.balance);
+    assert(msg.sender.send(this.balance));
   }
 }
 
