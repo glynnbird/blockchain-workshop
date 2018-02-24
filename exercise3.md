@@ -44,8 +44,6 @@ If compilation is successful, you should get only the abi and binary code like b
 
 Now, in the Geth console you have to follow the steps in [Exercise 2](https://gist.github.com/danmermel/66c87ffb1b6174999762c45d5251ffdf) in order to create a new contract on the blockchain.
 
-Remember to keep checking the value of jar until you can see an address, which indicates it has been mined.
-
 Check that the number of donations is currently 0:
 
 ```
@@ -56,17 +54,11 @@ Now you should be able to run the contract again and save some money:
 
     jar.save({from:eth.accounts[0], value:"50000000000000000"});
 
-You will end up with a transaction ID, e.g. 0xb983404b383361f27c1016eb7adcd422b0540d8fabf73fec0d5e9181a4fbaa49
+Now check the number of donations in your geth console again.
 
-Put that into etherscan to check it has been "mined"
-
-https://rinkeby.etherscan.io/tx/0xd7041f44b65a1b8a98c5a3111106211420a78bafe449dae7f718a2a8c911a706
-
-Once it has been mined, you can check the number of donations in your geth console:
-
-    jar.numDonations();
-    
     
 ## Learning Points
 
 A contract can have member variables whose state is retained for ever in the blockchain. The value of these variables can be changed by your constructor function at contract creation, or by any of the other contract's functions.
+
+If you declare a variable (or function) to be "public", it means it is accessible to anyone interacting with your contract.
