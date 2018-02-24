@@ -8,12 +8,12 @@ At this point, doing:
 ```
 eth.getBalance(eth.accounts[0])
 ```
-should show one Ether, i.e. 1000000000000000000 Wei
+should show a huge amount of Ether!
 
-Now look at the spreadsheet https://docs.google.com/spreadsheets/d/1fW_NYpddcuL1QKFtrIyYDkHIYHIFjabMfMfGzG7co0o/edit?usp=sharing
+Now create another account:
 
-Find the person above you and make a note of their address.
-Send them 0.1 Ether!
+    d
+
 
     eth.sendTransaction({from:eth.accounts[0], to:"<the recipient>", value:100000000000000000});
 
