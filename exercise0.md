@@ -22,12 +22,11 @@ sudo apt-get install solc
 ```
 geth --dev --rpc
 ```
+#### Attach to the geth instance that you are running
 
-Add your account id here so we can send you ether
-https://docs.google.com/spreadsheets/d/1fW_NYpddcuL1QKFtrIyYDkHIYHIFjabMfMfGzG7co0o/edit?usp=sharing
+Open another terminal window and in it:
 
-
-#### Make a symlink to make sure the testnet works
+##### Make a symlink to make sure the testnet works
 
 ```sh
 cd ~/.ethereum
@@ -35,11 +34,7 @@ ln -s /tmp/geth.ipc geth.ipc
 cd .. 
 ```
 
-What this does is download a "light" copy of the blockchain, so you need to leave it running, i.e. do not turn off your computer or close this terminal window. 
-
-#### Attach to the geth instance that you are running
-
-Open another terminal window and in it type:
+#### Attach to your instance of geth
 
 ```sh
 geth attach
@@ -70,4 +65,11 @@ Now see if your account has any money in it
 eth.getBalance(eth.accounts[0])
 ```
 
+### What did just happen
+
+You have just started your own private blockchain, complete with an account (with money in it!) and everything you need to write scripts and test them as if you were in the real blockchain!
+
+This "blockchain" is only visible to you, so it does not allow all the fun of participating in a descentralised network (yet). One step at a time!
+
+If your terminal crashes or is closed, you will have to start again!
 
