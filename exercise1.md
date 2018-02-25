@@ -12,7 +12,7 @@ should show a huge amount of Ether!
 
 Now create another account:
 
-    personal.newAccount
+    personal.newAccount()
 
 give it a passphrase (and remember it! Write it down somewhere)
 
