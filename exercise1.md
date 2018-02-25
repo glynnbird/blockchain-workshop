@@ -16,7 +16,17 @@ Now create another account:
 
 give it a passphrase (and remember it! Write it down somewhere)
 
-This account should have no money in it
+Now type: 
+
+    eth.accounts
+    
+You should see an array with two account numbers in. Something like:
+
+    ["0x70016bab921255af875e7eccd35f64baeea47f8e", "0xdd9491c99e77fd1e0792fd2afe99387e7b4e3578"]
+    
+The first one is the one that was automatically generated. The second one is the one we just generated with `personal.newAccount()`.
+
+This new account should have no money in it
 
     eth.getBalance(eth.accounts[1])
 
