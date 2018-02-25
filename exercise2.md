@@ -113,3 +113,9 @@ A smart contract deployed to the Blockchain has an address (its location) and an
 
 With those two pieces of information, anyone can interact with any contract.
 
+A smart contract can hold funds just like wallet.
+
+The smart contract can receive value and send that value to another wallet or contract.
+
+Deploying a contract costs funds and each transfer of value incurs additional transaction fees.
+
