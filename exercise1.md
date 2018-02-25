@@ -46,7 +46,13 @@ In our case, the tx will be mined immediately so you should be able to see some 
 
 Check your balance!
 
+Check the first account:
+
     eth.getBalance(eth.accounts[0])
+    
+Check the second account:
+
+    eth.getBalance(eth.accounts[1])
 
    
 ## Learning Points
