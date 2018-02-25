@@ -69,5 +69,7 @@ Your address and the transactions are public. Anyone can see what it has been do
 
 Transactions cost money: You are paying the "miners" to do the work of adding your transaction to the blockchain (see the "TxFee" column in the above link)
 
+We can set up as many accounts as we like. Account setup is free and doesn not require us to be connected to the network.
+
 
 
