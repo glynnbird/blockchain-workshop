@@ -50,7 +50,7 @@ Now, your "withdraw" function has to check whether you have saved enough money:
 
 Save your code and make sure it compiles
 
-    solc -- abi --bin jar3.sol
+    solc --abi --bin jar3.sol
 
 Again, follow the steps in [Exercise 2](https://gist.github.com/danmermel/66c87ffb1b6174999762c45d5251ffdf) to get the new contract up on the blockchain.
 
