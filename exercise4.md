@@ -41,7 +41,7 @@ Now, your "withdraw" function has to check whether you have saved enough money:
 ```
   function withdraw () {
     assert(this.balance >= target);
-    assert(msg.sender.send(this.balance);
+    assert(msg.sender.send(this.balance));
   }
 ```
 - **this.balance** is an internal variable that holds the amount of ether in the contract.  
